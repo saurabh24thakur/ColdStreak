@@ -48,7 +48,7 @@ export default async function DashboardPage() {
 
   let previousDate: Date | null = null
 
-  sortedEntries.forEach((entry) => {
+  for (const entry of sortedEntries) {
     const entryDate = new Date(entry.date)
     entryDate.setHours(0, 0, 0, 0)
 
@@ -71,7 +71,7 @@ export default async function DashboardPage() {
     
     currentStreak = tempStreak
     previousDate = entryDate
-  })
+  }
 
   if (previousDate) {
     const diffTime = Math.abs(today.getTime() - previousDate.getTime())
